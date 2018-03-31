@@ -1,0 +1,29 @@
+<html>
+<body>
+    hello vm
+    $!{value1}
+    <br/>
+    <pre></pre>
+        #foreach ($color in $colors)
+        Color $!{foreach.index}/$!{foreach.count}: $!{color} ##Color 0/1: RED Color 1/2: GREEN Color 2/3: BLUE
+        Color00 $!{foreach.count}-$!{foreach.index}是$!{color}颜色的<br/>
+        #end
+        <br/>
+    //map的获取
+        #foreach($key in $map.keySet()) ##通过方法取
+        Number1 $!{foreach.index}/$!{foreach.count}:$!{key} $map.get($key)##取变量的话用$去掉！；
+        #end
+        #foreach($key in $map.keySet())
+        Number2 $!{foreach.index}/$!{foreach.count}: $!{key} $map.get($key)
+        #end
+        <br/>
+        #foreach($kv in $map.entrySet())
+        Number : $!{kv.key} $!{kv.value}
+        #end
+    <br/>
+
+    //自定义类的显示
+        $!{user.name}
+        $!{user.getName()}
+</body>
+</html>
